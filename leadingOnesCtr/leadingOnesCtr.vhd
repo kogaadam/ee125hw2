@@ -21,9 +21,7 @@ begin
 	internalOnes(BITS_IN) <= '1';
 	
 	gen: for i in 0 to BITS_IN-1 generate
-		internalOnes(BITS_IN - 1 - i) <= '1' when inp_vector(BITS_IN - 1 - i)
-														  and internalOnes(BITS_IN - i)
-														  else '0';
+		internalOnes(BITS_IN - 1 - i) <= '1' when inp_vector(BITS_IN - 1 - i) and internalOnes(BITS_IN - i) else '0';
 	end generate;
 		
 	gen2: for i in 1 to BITS_IN generate
