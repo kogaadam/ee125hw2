@@ -8,7 +8,6 @@ entity leadingOnesCtr is
 		BITS_OUT: positive := 4);	--calculated by user as ceil(log2(BITS_IN+1))
 	port (
 		inp_vector: in std_logic_vector(BITS_IN-1 downto 0);
-		onesCount: out std_logic_vector(BITS_OUT-1 downto 0);
 		ssd: out std_logic_vector(6 downto 0));
 end entity;
 
@@ -17,6 +16,7 @@ architecture concurrent of leadingOnesCtr is
 	type integer_array is array (0 to BITS_IN) of integer range 0 to BITS_IN;
 	signal internalLeadOnesCt: integer_array;
 	signal internalLeadOnes: std_logic_vector(BITS_IN downto 0);
+	signal onesCount: std_logic_vector(BITS_OUT-1 downto 0);
 begin
 	internalLeadOnesCt(0) <= 0;
 	internalLeadOnes(BITS_IN) <= '1';
